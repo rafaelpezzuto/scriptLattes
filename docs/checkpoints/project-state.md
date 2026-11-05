@@ -18,15 +18,18 @@
   dos grupos de processos quando o operador cancela uma execução.
 - Dados originais e relatórios locais conferidos por hash, sem alterações.
 
-## Em andamento
-- Preparação de commit/PR no fork pessoal, não no repositório upstream.
+## Entrega para revisão
+- PR aberto no fork pessoal: [#1 — atualização incremental e publicação segura](https://github.com/rafaelpezzuto/scriptLattes/pull/1).
+- Base: `rafaelpezzuto/scriptLattes:main`; head: `feat/inct-atualizacao-incremental`.
+- Commit funcional: `520144a`; a sincronização da base foi fast-forward, sem force.
+- CI remoto acompanha o PR; consultar os checks atuais antes de merge.
+- Nenhum PR foi aberto no upstream e nenhum merge foi executado.
 - Alterações desta revisão não foram implantadas: a instância existente continua usando
   sua imagem imutável anteriormente validada, sem redeploy automático.
 
 ## Próximo passo
-1. Publicar branch/PR somente com código, testes, exemplos e documentação não privada.
-2. Inspecionar os checks remotos do PR.
-3. Fazer um novo build/validação antes de qualquer atualização futura da implantação.
+1. Revisar o PR e os checks remotos antes de decidir pelo merge.
+2. Fazer um novo build/validação antes de qualquer atualização futura da implantação.
 
 ## Armadilhas conhecidas
 - Não incluir binário ChromeDriver, currículos HTML, listas reais, configuração pessoal,
