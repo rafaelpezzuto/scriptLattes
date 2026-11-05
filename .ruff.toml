@@ -1,0 +1,5 @@
+target-version = "py311"
+
+[lint]
+# Limit hygiene checks to the automation; do not reformat unrelated legacy code.
+select = ["E4", "E7", "E9", "F"]

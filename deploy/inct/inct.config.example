@@ -1,0 +1,10 @@
+# Copy to /etc/scriptlattes/inct.config on the executor.
+# Replace example members with authorized, real 16-digit Lattes IDs.
+global-nome_do_grupo = Grupo de pesquisa
+global-arquivo_de_entrada = /config/inct.list
+# The updater overrides output/cache ONLY in its release-specific config copy.
+global-diretorio_de_saida = /data/generated
+global-diretorio_de_armazenamento_de_cvs = /data/seed-cache
+global-itens_desde_o_ano = 2025
+global-itens_ate_o_ano = 2026
+relatorio-incluir_metricas = sim

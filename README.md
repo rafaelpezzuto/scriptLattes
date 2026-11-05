@@ -1,4 +1,5 @@
 # scriptLattes
+
 O CNPq realiza um enérgico trabalho na integração de bases de currículos acadêmicos de instituições públicas e privadas em uma única plataforma denominada Lattes. Os chamados ``Currículos Lattes'' são considerados um padrão nacional de avaliação representando um histórico das atividades científicas / acadêmicas / profissionais de pesquisadores cadastrados. Os currículos Lattes foram projetados para mostrar informação pública, embora, individual de cada usuário cadastrado na plataforma. Muitas vezes, realizar uma compilação ou sumarização de produções bibliográficas para um grupo de usuários cadastrados de médio ou grande porte (e.g. grupo de professores, departamento de pós-graduação) realmente requer um grande esforço mecânico que muitas vezes é suscetível a falhas.
 
 O scriptLattes é um script GNU-GPL desenvolvido para a extração e compilação automática de: (1) produções bibliográficas, (2) produções técnicas, (3) produções artísticas, (4) orientações, (5) projetos de pesquisa, (6) projetos de extensão, **(7) projetos de desenvolvimento**, (8) áreas de atuação com especialidades, (9) prêmios e títulos, e (10) grafo de colaborações de um conjunto de pesquisadores cadastrados na plataforma Lattes. Associações de Qualis para as produções acadêmicas publicadas em Congressos e Revistas também são considerados.
@@ -6,6 +7,20 @@ O scriptLattes é um script GNU-GPL desenvolvido para a extração e compilaçã
 O scriptLattes baixa automaticamente os currículos Lattes em formato HTML (livremente disponíveis na rede) de um grupo de pessoas de interesse, compila as listas de produções, tratando apropriadamente as produções duplicadas e similares. São geradas páginas HTML com listas de produções e orientações separadas por tipo e colocadas em ordem cronológica invertida. **Além dos relatórios HTML tradicionais, o sistema agora gera automaticamente arquivos JSON individuais para cada pesquisador, facilitando a análise de dados e integração com outras ferramentas.** Adicionalmente são criadas automaticamente vários grafos (redes) de co-autoria entre os membros do grupo de interesse e um mapa de geolocalização dos membros e alunos (de pós-doutorado, doutorado e mestrado) com orientação concluída. Os relatórios gerados permitem avaliar, analisar ou documentar a produção de grupos de pesquisa. Este projeto de software livre foi idealizado por Jesús P. Mena-Chalco e Roberto M. Cesar-Jr em 2005 (IME/USP).
 
 O scriptLattes atualmente permite filtrar as produções científicas usando termos de pesquisa (Veja os exemplo teste-03).
+
+## Automação incremental de relatórios
+
+A rotina opcional em `scripts/inct_update.py` consulta currículos, detecta mudanças
+e gera versões validadas sem sobrescrever a última geração válida. A publicação por
+SSH é separada e usa **staging por padrão**; instalar o código não ativa publicação
+nem agendamento automaticamente.
+
+A automação usa Linux e Python 3.11+ (Python 3.13 no container). O receptor remoto
+requer apenas a biblioteca padrão do Python 3.10+. Exemplos sem dados pessoais estão
+em `deploy/inct/inct.config.example` e `deploy/inct/inct.list.example`.
+
+Veja o [runbook de instalação, testes e recuperação](docs/runbooks/inct-update.md)
+e a [documentação](docs/README.md). A execução tradicional continua disponível.
 
 ## ✨ Principais Funcionalidades Implementadas
 

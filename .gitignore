@@ -18,3 +18,9 @@ exemplo/ensp2024-termos2/
 # Arquivos temporários do Makefile
 chromedriver-temp.zip
 chromedriver-linux64/
+
+# Private automation inventory and local INCT validation data
+.local/
+/exemplo/inct.config
+/exemplo/inct.list
+/exemplo/inct/

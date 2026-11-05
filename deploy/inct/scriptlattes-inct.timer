@@ -1,0 +1,11 @@
+[Unit]
+Description=Consulta semanal dos currículos INCT (domingo, horário de São Paulo)
+
+[Timer]
+OnCalendar=Sun *-*-* 04:00:00 America/Sao_Paulo
+RandomizedDelaySec=30m
+Persistent=true
+Unit=scriptlattes-inct.service
+
+[Install]
+WantedBy=timers.target

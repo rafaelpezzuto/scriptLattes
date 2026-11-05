@@ -69,6 +69,10 @@ class LattesRobot:
         chrome_options.add_argument("start-maximized")
         chrome_options.add_argument('--blink-settings=imagesEnabled=false') 
         chrome_options.add_argument("headless")
+        # Opt-in for an isolated, non-root container where Chromium's nested
+        # sandbox is unavailable. Never change the default for host executions.
+        if os.environ.get('SCRIPTLATTES_CHROME_NO_SANDBOX') == '1':
+            chrome_options.add_argument('--no-sandbox')
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_experimental_option('useAutomationExtension', False)
         chrome_options.add_experimental_option('prefs', {'download.default_directory': self.results_dir})

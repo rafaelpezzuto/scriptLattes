@@ -1,18 +1,3 @@
-import sys
-from unittest.mock import MagicMock
-sys.modules['bs4'] = MagicMock()
-sys.modules['selenium'] = MagicMock()
-sys.modules['selenium.webdriver'] = MagicMock()
-sys.modules['selenium.webdriver.common'] = MagicMock()
-sys.modules['selenium.webdriver.common.keys'] = MagicMock()
-sys.modules['selenium.webdriver.common.by'] = MagicMock()
-sys.modules['selenium.common'] = MagicMock()
-sys.modules['selenium.common.exceptions'] = MagicMock()
-sys.modules['selenium.webdriver.chrome'] = MagicMock()
-sys.modules['selenium.webdriver.chrome.service'] = MagicMock()
-sys.modules['networkx'] = MagicMock()
-sys.modules['networkx.readwrite'] = MagicMock()
-
 import unittest
 from scriptLattes.parserLattes import ParserLattes
 from scriptLattes.producoesUnitarias.participacaoEmBanca import ParticipacaoEmBanca

@@ -1,0 +1,34 @@
+name: INCT automation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: inct-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build isolated test image
+        run: docker build --target test -f deploy/inct/Dockerfile -t scriptlattes-inct:test .
+      - name: Offline regression tests
+        run: >-
+          docker run --rm --init --network none --read-only
+          --tmpfs /tmp:rw,nosuid,nodev,size=128m,mode=1777
+          scriptlattes-inct:test
+      - name: Python and shell hygiene
+        run: >-
+          docker run --rm --network none --read-only
+          --entrypoint sh scriptlattes-inct:test -c
+          'ruff check --no-cache scripts tests/test_inct_automation.py &&
+          shellcheck deploy/inct/run.sh && bash -n deploy/inct/run.sh'

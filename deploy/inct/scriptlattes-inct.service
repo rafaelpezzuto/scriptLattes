@@ -1,0 +1,15 @@
+[Unit]
+Description=Atualização incremental dos relatórios INCT
+After=docker.service network.target
+Requires=docker.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/scriptlattes/runner.env
+ExecStart=/bin/bash /opt/scriptlattes/deploy/inct/run.sh
+# Root only orchestrates Docker; container and SSH run as scriptlattes.
+TimeoutStartSec=5h
+UMask=0027
+Nice=10
+StandardOutput=journal
+StandardError=journal

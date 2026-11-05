@@ -4,6 +4,12 @@ Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 ## [Não lançado]
 
+### Adicionado
+- Rotina opcional de atualização incremental: comparação de currículos, modos offline/check-only e geração transacional.
+- Publicação SSH separada com manifesto SHA-256, receptor restrito, staging e ativação por versões.
+- Migração administrativa com backup/rollback, container sem root e exemplo de timer semanal do systemd.
+- Exemplos sem dados pessoais, runbook operacional e CI de testes offline e higiene em Docker.
+
 ### Corrigido
 - Extração de todos os registros da seção "Prêmios e títulos", que antes era interrompida após o primeiro item.
 - Testes de regressão para múltiplos prêmios, transição de seção e isolamento entre currículos.
